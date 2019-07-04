@@ -5,15 +5,21 @@
 </head>
 <body>
  <div id="root">
-    {{message}}
+     <p>Enter your name</p>
+     <input type="text" v-model="name">
+     <br>
+    My name is: {{name}}
  </div>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript" src="vue.js"></script>
 <script type="text/javascript">
     var app = new Vue({
         el:"#root",
         data:{
-            message:"I am learning Vue"
+            name:"Ekhlas"
+        },
+        mounted:function(){
+            console.log('mounted');
         }
     });
 </script>
