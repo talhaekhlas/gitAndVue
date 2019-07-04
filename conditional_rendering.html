@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+    .active{
+        background:red;
+    }
+</style>
+</head>
+<body>
+ <div id="root">
+     <ul>
+         <!-- <li v-for="skill in skills">
+             {{skill.name}}
+         </li> -->
+
+         <li v-for="(skill, i) in skills" v-if="skill.experience>=7">
+                {{i+1}} {{skill.name}}
+        </li>
+
+     </ul>
+ </div>
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el:"#root",
+        data:{
+            skills:[
+                {name:'Php',experience:5},
+                {name:'HMTL',experience:7},
+                {name:'Java',experience:8},
+                {name:'Python',experience:12}
+            ]
+        }
+    });
+</script>
+</body>
+</html> 
