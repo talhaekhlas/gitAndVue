@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+    .active{
+        background:red;
+    }
+</style>
+</head>
+<body>
+ <div id="root">
+     <ul>
+        
+         <li v-for="(skill, i) in skills">
+                {{i+1}} {{skill}}
+                <button @click='deleteSkill(i)'>delete</button>
+        </li>
+
+        <input type="text" v-model='newSkill'>
+
+        <button @click='addNewSkill'>add new skill</button>
+
+     </ul>
+
+
+     <ul>
+        
+        <li v-for="(value, index) in objectExample">
+               {{index}} {{value}}
+               <button @click='deleteObject(index)'>delete</button>
+               
+       </li>
+
+       <input type="text" v-model='newObject'>
+       <input type="text" v-model='newKey'>
+
+       <button @click='addNewObject'>add new object</button>
+
+    </ul>
+ </div>
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el:"#root",
+        data:{
+            newSkill:'',
+            skills:['php','java','python'],
+            newObject:'',
+            newKey:'',
+            objectExample:{language:'php',level:'good'}
+        },
+        methods:{
+            addNewSkill:function(){
+                 this.skills.push(this.newSkill);
+                 this.newSkill = ''
+            },
+            deleteSkill:function(i){
+                this.skills.splice(i,1);
+            },
+            addNewObject:function(){
+                 newOb = this.newKey;
+                 this.objectExample[newOb] = this.newObject;
+                 //this.objectExample = this.objectExample;
+                 this.newObject = ''
+                 this.newKey = ''
+            },
+            deleteObject:function(index){
+                
+
+                this.$delete(this.objectExample, index)
+                //delete this.objectExample[index];
+                console.log(index);
+                //this.objectExample  = this.objectExample;
+                //this.objectExample.splice(i,1);
+            },
+        }
+    });
+</script>
+</body>
+</html> 
