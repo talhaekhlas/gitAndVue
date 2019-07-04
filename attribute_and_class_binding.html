@@ -11,15 +11,13 @@
 <body>
  <div id="root">
      <ul>
-         <!-- <li><a v-bind:href="link1.url" v-bind:title="link1.title">{{link1.text}}</a></li>
-         <li><a v-bind:href="link2.url" v-bind:title="link2.title">{{link2.text}}</a></li> -->
+         <!-- <li v-for="skill in skills">
+             {{skill.name}}
+         </li> -->
 
-         <li><a :class="{'active':activeLink=='link1'}" :href="link1.url" :title="link1.title">{{link1.text}}</a></li>
-         <li><a :class="{'active':activeLink=='link2'}" :href="link2.url" :title="link2.title">{{link2.text}}</a></li>
-
-         <p v-html="htmlCode">
-            
-         </p>
+         <li v-for="(skill, i) in skills">
+                {{i+1}} {{skill.name}}
+        </li>
 
      </ul>
  </div>
@@ -29,14 +27,12 @@
     var app = new Vue({
         el:"#root",
         data:{
-            link1:{
-                text:'Facebook',title:'Go to Facebook', url:"https://www.facebook.com"
-            },
-            link2:{
-                text:'Youtube',title:'Go to Youtube', url:"https://www.youtube.com/"
-            },
-            activeLink:'link1',
-            htmlCode:"<h1>The cow is a domestic animal</h1>"
+            skills:[
+                {name:'Php',experience:5},
+                {name:'HMTL',experience:7},
+                {name:'Java',experience:8},
+                {name:'Python',experience:12}
+            ]
         }
     });
 </script>
