@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+    .active{
+        background:red;
+    }
+</style>
+</head>
+<body>
+ <div id="root">
+     
+{{name | upperCase}}, {{designation | upperCase}}
+<br>
+{{name | lower}}, {{designation | lower}}
+     
+ </div>
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+
+    Vue.filter('lower',function(s){
+      return  s.toLowerCase();
+    })
+    var app = new Vue({
+        el:"#root",
+        data:{
+            
+            name:'Ekhlas Uddin',
+            designation:'Computer Operator'
+        },
+        filters:{
+            upperCase:function(s){
+                return s.toUpperCase();
+            }
+        }
+    });
+</script>
+</body>
+</html>  
